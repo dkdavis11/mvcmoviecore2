@@ -25,16 +25,20 @@ namespace mvcmoviecore2.Controllers
 
 
         [HttpGet]
-        public IActionResult GetUsers()
+        public async Task<IActionResult> GetUsers()
         {
           if (dbConn2== null)
             dbConn2 = configuration.GetValue<string>("ConnectionStrings:Default");
 
             using var connection = new MySqlConnection(dbConn2);
-            connection.OpenAsync();
-            using var command = new MySqlCommand("SELECT field FROM movie;", connection);
+            await connection.OpenAsync();
+            using var command = new MySqlCommand("SELECT * FROM movies;", connection);
 
             //string dbConn = configuration.GetSection("MySettings").GetSection("DbConnection").Value;
+            using var reader = await command.ExecuteReaderAsync();
+            
+            while (await reader.ReadAsync())
+                Console.WriteLine(reader.GetString(1));
             var list = new List<string>();
             list.Add("John");
             list.Add("Doe");
