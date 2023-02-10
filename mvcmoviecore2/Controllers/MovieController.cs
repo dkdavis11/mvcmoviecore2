@@ -46,7 +46,13 @@ namespace mvcmoviecore2.Controllers
                 Console.WriteLine(reader.GetDateTime(2));
                 Console.WriteLine(reader.GetString(3));
                 Console.WriteLine(reader.GetDecimal(4));
-                list = new List<MovieModel>();
+                model.Id = reader.GetInt16(0);
+                model.Title = reader.GetString(1);
+                model.ReleaseDate = reader.GetDateTime(2);
+                model.Genre = reader.GetString(3);
+                model.Price = reader.GetDecimal(4);
+                list.Add(model);
+                
             }
 
 
