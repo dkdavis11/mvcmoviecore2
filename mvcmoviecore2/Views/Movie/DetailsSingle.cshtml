@@ -2,7 +2,8 @@
 
 @{
     ViewData["Title"] = "DetailsSingle";
-    var moviemodel = ViewBag.MovieModel;
+    var moviemodel = ViewBag.MovieBag;
+    Console.WriteLine(moviemodel.Title);
 }
 
 <h1>Index</h1>
@@ -33,16 +34,17 @@
             <tr>
                 <td>
                 
-                    @Html.Display(Model.Title);
+                    @moviemodel.Title;
                 </td>
                 <td>
-                    @Html.Display(Model.ReleaseDate.ToShortDateString());
+                    @moviemodel.RealeaseDateString;
+;
                 </td>
                 <td>
-                    @Html.Display(Model.Genre);
+                   @moviemodel.Genre
                 </td>
                 <td>
-                    @Html.Display(Model.Price.ToString());
+                    @moviemodel.Price.ToString());
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="Model.Id">Edit</a> |

@@ -119,6 +119,7 @@ namespace mvcmoviecore2.Controllers
             model.Id = reader.GetInt16(0);
             model.Title = reader.GetString(1);
             model.ReleaseDate = reader.GetDateTime(2);
+            model.RealeaseDateString = reader.GetDateTime(2).ToString("yyyy-MM-dd");
             model.Genre = reader.GetString(3);
             model.Price = reader.GetDecimal(4);
 
@@ -128,7 +129,7 @@ namespace mvcmoviecore2.Controllers
             //{
             //    return NotFound();
             //}
-            ViewBag.MovieModel = model;
+            ViewBag.MovieBag = model;
             return View();
         }
 
