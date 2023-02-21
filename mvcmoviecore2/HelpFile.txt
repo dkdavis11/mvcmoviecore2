@@ -20,5 +20,6 @@ git checkout branch1
 clone branch
 git clone --branch Branch1 https://github.com/dkdavis11/mvcmoviecore.git
 fix this.
-
+codesign -s  -f “” —keychain ~/Library/Keychains/login.keychaing-db /opt/homebrew/opt/php/lib/httpd/modules/libphp.so
+more code sign
  
